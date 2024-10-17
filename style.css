@@ -1,0 +1,299 @@
+:root {
+    --primary-color: #000000; /* Noir */
+    --secondary-color: #FF0000; /* Rouge */
+    --accent-color: #0000FF; /* Bleu */
+    --purple-color: #800080; /* Violet */
+    --yellow-color: #FFD700; /* Jaune */
+    --background-color: #f0f2f5;
+    --text-color: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--purple-color) 0%, #ffffff 100%);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header avec fond noir et effet de verre */
+header {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-container img {
+    height: 50px;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.3));
+    transition: transform 0.5s ease;
+}
+
+.logo-container img:hover {
+    transform: rotate(360deg);
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: var(--background-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Navigation alignée à droite */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 1rem;
+    position: relative;
+    /* padding: 0.5rem 1rem; */
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after {
+    width: 80%;
+}
+
+.btn-logout {
+    background: linear-gradient(45deg, var(--secondary-color), var(--purple-color));
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+    margin-left: 2rem;
+}
+
+.btn-logout:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+}
+
+/* Sections du contenu */
+main {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+section {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* Stats cards avec dégradés de couleurs */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stat-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.stat-box:nth-child(1) {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+}
+
+.stat-box:nth-child(2) {
+    background: linear-gradient(45deg, var(--secondary-color), var(--purple-color));
+}
+
+.stat-box:nth-child(3) {
+    background: linear-gradient(45deg, var(--accent-color), var(--yellow-color));
+}
+
+.stat-box h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.stat-box p {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Tableaux améliorés */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.8rem;
+    margin-top: 1rem;
+}
+
+th {
+    background: var(--primary-color);
+    color: white;
+    padding: 1.2rem;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+th:first-child { border-radius: 10px 0 0 10px; }
+th:last-child { border-radius: 0 10px 10px 0; }
+
+td {
+    padding: 1.2rem;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+tr:hover td {
+    background: #e9ecef;
+    transform: scale(1.01);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+td:first-child { border-radius: 10px 0 0 10px; }
+td:last-child { border-radius: 0 10px 10px 0; }
+
+/* Boutons d'action */
+.btn {
+    background: linear-gradient(45deg, var(--accent-color), var(--purple-color));
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .stats-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    header {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav {
+        flex-direction: column;
+        width: 100%;
+        margin: 1rem 0;
+    }
+    
+    nav a {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem;
+    }
+    
+    .btn-logout {
+        margin: 1rem 0;
+        width: 100%;
+    }
+    
+    .chart-container {
+        height: 300px;
+    }
+}
+.btn-role {
+    background-color: #2a2c2a; /* Couleur du bouton */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}

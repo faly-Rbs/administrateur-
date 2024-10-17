@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Téléverser</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/televerser.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo alabri.jpeg" alt="Logo ALAbri">
+            <span class="logo-text">L'Homme et la nature alabri</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="upload-container">
+            <h2>Téléverser un fichier</h2>
+            <div id="uploadZone" class="upload-zone">
+                <div class="upload-icon">📁</div>
+                <p>Glissez et déposez vos fichiers ici</p>
+                <p>ou</p>
+                <button class="btn" onclick="document.getElementById('fileInput').click()">
+                    Choisir un fichier
+                </button>
+                <input type="file" id="fileInput" class="file-input">
+            </div>
+            <div class="progress-bar" id="progressBar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="success-message" id="successMessage">
+                Fichier téléversé avec succès !
+            </div>
+        </div>
+
+        <div class="files-container">
+            <h2>Fichiers téléversés</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom du fichier</th>
+                        <th>Date</th>
+                        <th>Taille</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="filesList">
+                    <!-- Les fichiers seront ajoutés ici dynamiquement -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="./js/televerser.js"></script>
+</body>
+</html>

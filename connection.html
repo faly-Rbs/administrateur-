@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Connexion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="./css/connection.css">
+</head>
+<body>
+    <!-- Page de connexion -->
+    <div class="container" id="loginForm">
+        <img src="images/logo alabri.jpeg" alt="Logo ALAbri" class="logo">
+        <h1>Connexion</h1>
+        <form onsubmit="return handleLogin(event)">
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" required autocomplete="email">
+                <div class="error-message" id="loginEmailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Mot de passe</label>
+                <input type="password" id="loginPassword" required>
+                <span class="password-toggle" onclick="togglePassword('loginPassword')">👁️</span>
+                <div class="error-message" id="loginPasswordError"></div>
+            </div>
+            <button type="submit" class="btn">
+                Se connecter
+                <div class="spinner"></div>
+            </button>
+            <a href="#" class="link" onclick="toggleForms()">S'inscrire</a>
+            <a href="#" class="link" style="margin-left: 1rem;">Mot de passe oublié ?</a>
+        </form>
+    </div>
+
+    <!-- Page d'inscription -->
+    <div class="container" id="registerForm" style="display: none;">
+        <img src="images/logo alabri.jpeg" alt="Logo ALAbri" class="logo">
+        <h1>Créer un nouveau compte utilisateur</h1>
+        <form onsubmit="return handleRegister(event)">
+            <div class="form-group">
+                <label for="registerName">Nom</label>
+                <input type="text" id="registerName" required>
+                <div class="error-message" id="registerNameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="registerEmail">Email</label>
+                <input type="email" id="registerEmail" required autocomplete="email">
+                <div class="error-message" id="registerEmailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="registerPassword">Mot de passe</label>
+                <input type="password" id="registerPassword" required>
+                <span class="password-toggle" onclick="togglePassword('registerPassword')">👁️</span>
+                <div class="error-message" id="registerPasswordError"></div>
+            </div>
+            <button type="submit" class="btn">
+                Créer
+                <div class="spinner"></div>
+            </button>
+            <a href="#" class="link" onclick="toggleForms()">J'ai déjà un compte</a>
+        </form>
+    </div>
+
+    <script src="./js/connection.js"></script>
+</body>
+</html>
